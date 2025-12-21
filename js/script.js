@@ -1,250 +1,77 @@
-// Инициализируем Swiper 
-new Swiper('.image-slider', {
-    // Стрелки 
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-    },
-    // Навигация
-    //Буллеты. текущее пложение, прогресс бар
-    pagination: {
-        el: '.swiper-pagination',
-        /*
-        //Буллеты
-        clickable: true, 
-        //Динамические буллеты
-        dynamicBullets: true,
-        //кастомные буллеты 
-        renderBullet: function (index, className) {
-            return '<span class="' + className + '">' + (index + 1) + '</span>';
-        },
-        */
+// ===========================
+// Swiper (главный + миниатюры)
+// ===========================
+const mainSwiper = new Swiper('.image-slider', {
+  // Стрелки
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
 
-        
-        //Фракция
-        /*
-        type: 'fraction',
-        //Кастомный вывод фракции
-        renderFraction: function (currentClass, totalClass) {
-            return 'Фото <span class="' + currentClass + '"></span>' + ' из ' + '<span class="' + totalClass + '"></span>';
-        },
-        */
+  // Навигация (у тебя сейчас пагинация выключена — оставляю как есть)
+  pagination: {
+    el: '.swiper-pagination',
+  },
 
-        /*
-        //Прогресс бар
-        type: 'progressbar'
-        */
-    },
-    //Скролл
-    /*
-    scrollbar: {
-        el: '.swiper-scrollbar',
-        // Возможность перетаскивать скролл
-        draggable: true
-    },
-    */
+  // ВАЖНО ДЛЯ МОБИЛОК: не блокируем клики/тапы внутри Swiper
+  preventClicks: false,
+  preventClicksPropagation: false,
+  touchStartPreventDefault: false,
 
+  simulateTouch: true,
+  touchRatio: 1,
+  touchAngle: 45,
+  grabCursor: true,
 
-    //Включение отключение
-    // перетаскивания на ПК
-    simulateTouch: true, 
-    // Чувствительность свайпа ( 0 - отключение, увеличение значения - увеличение чувствительности)
-    touchRatio: 1,
-    //Угол срабатывания свайпа/перетаскивания
-    touchAngle: 45,
-    //Курсор перетаскивания
-    grabCursor: true,
+  slideToClickedSlide: true,
 
-    // Переключение при клике на слайд
-    slideToClickedSlide: true,
+  hashNavigation: {
+    watchState: true,
+  },
 
-    hashNavigation: {
-        //Отслеживать состояние
-        watchState: true,
-    },
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true,
+    pageUpDown: true,
+  },
 
-    // Управление клавиатурой
-    keyboard: {
-        // Включить\Выключить
-        enabled: true,
-        //Включить\выключить только когда слайдер в пределах вьюпорта
-        onlyInViewport: true,
-        //Включить\выключить управление клавишами pageUp, pageDown
-        pageUpDown: true,
-    },
+  mousewheel: {
+    sensitivity: 1,
+    eventsTarget: ".image-slider"
+  },
 
-    // управление колесом мыши
-    mousewheel: {
-        //Чувствительность колеса мыши
-        sensitivity: 1,
-        //Класс обьекта на котором будет срабатывать прокрутка мышью
-        eventsTarget: ".image-slider"
-    },
+  autoHeight: true,
+  slidesPerView: 1,
+  spaceBetween: 30,
+  slidesPerGroup: 1,
+  centeredSlides: false,
+  initialSlide: 0,
 
-    // Автовысота (нужно когда картинки разного рамера), плавно подстраивает высоту слайдера под высоту контента
-    autoHeight: true,
+  loop: false,
+  loopedSlides: 2,
 
-    // Колличество слайдов для показа (принимает не только целые но и дробные числа, или значение "auto")
-    //slidesPerView: 'auto', // при значении "auto" ширина слайдера формируется шириной контента расположенного в нём
-    // так же для корректной работы этого значения в css необходимо написать настройку автоширины для слайдов
-    slidesPerView: 1,
+  // Свободный режим
+  freeMode: false,
 
-    // Отключение функционала (если слайдов меньше чем нужно)
-    // watchOverflow: true,
-    
+  speed: 800,
+  effect: 'slide',
 
-    //Отступ между слайдами
-    spaceBetween: 30,
-
-    // Колличемтво пролистываемых слайдов
-    slidesPerGroup: 1,
-
-    //Активный слайд по центру (true/false)
-    centeredSlides: false,
-
-    //Стартовый слайд (где первый слайд это нулевой)
-    initialSlide: 0,
-
-    //Мультирядность (для корректной работы нужно отключить автовысоту (и здесь и в CSS), и также установить кол-во рядов параметром "slidesPerView", и установить некоторые стили)
-    //slidesPerColumn: 2,
-
-    // Бесконечный слайдер (true/false) (не будет работать с мультирядностью, а также бесконечная прокрутка не подразумевает скролл поэтому стоит его отключать)
-    loop: false,
-
-    // Кол-во дублирующих слайдов (чтобы работала бесконечность если у нас "slidesPerView: 'auto'")
-    loopedSlides: 2,
-
-    //Свободный режим
-    freeMode: false,
-
-    //Автопрокрутка
-    /*
-    autoplay: {
-        //Пауза между прокруткой
-        delay: 1000,
-        //закончить на последнем слайде
-        stopOnLastSlide: true,
-        //Отключить полсе ручного переключения
-        disableOnInteraction: false
-    },
-    */
-    //скорость прокрутки
-    speed: 800,
-
-    // Вертикальный слайдер
-    //direction: 'vertical',
-    // Горизонтальный слайдер (по умолчанию)
-    //direction: 'horizontal',
-
-
-
-    //Эффеты переключения слайдов
-    // Листание (по умолчанию)
-    effect: 'slide',
-
-    /*
-    //Смена прозрачности
-    effect: 'fade',
-    //дополнение к аade
-    fadeEffect: {
-        // Параллельная смена прозрачности
-        crossFade: true
-    },
-    */
-    /*
-    //Переворот
-    effect: 'flip',
-
-    //дополнение к flip
-    flipEffect: {
-        //Тень
-        slideShadows: true,
-        //показ только активного слайда
-        limitRotation: true
-    },
-    */
-    /*
-    //Куб
-    effect: 'cube',
-
-    //Дополнение к cube (также есть доп.стили)
-    cubeEffect: {
-        //Настройка тени
-        slideShadow: true,
-        shadow: true,
-        shadowOffset: 20,
-        shadowScale: 0.94
-    },
-    */
-   /*
-   //Эффект потока
-   effect: 'coverflow',
-
-   //Дополнение к coverflow
-   CoverflowEffect: {
-    //угол
-    rotate: 20,
-    //наложение
-    stretch: 50,
-    //тень
-    slideShadows: true,
-   },
-   */
-
-
-   //Брейк поинты (адаптив)
-   //ширина экрана
-   /*
-   breakpoints: {
-    320: {
-        slidesPerView: 1,
-    },
-    480: {
-        slidesPerView: 2,
-    },
-    992: {
-        slidesPerView: 3,
-    }
-   },
-   */
-   //указываем не ширину, а соотношение сторон
-   /*
-   breakpoints: {
-    '@0.75': {
-        slidesPerView: 1,
-    },
-    '@1.00': {
-        slidesPerView: 2,
-    },
-    "@1.50": {
-        slidesPerView: 3,
-    }
-   },
-   */
-
-    /*
-   // Зум картинки
-   zoom: {
-    //максимальное увеличение
-    maxRatio: 5,
-    //минимальное увеличение
-    minRatio: 1,
-   },
-
-   */
-
-   // Миниатюры (превью)
-   thumbs: {
-    //свайпер с миниатюрами и его настройки
+  // Миниатюры
+  thumbs: {
     swiper: {
-        el: '.image-mini-slider',
-        slidesPerView: 6,
+      el: '.image-mini-slider',
+      slidesPerView: 6,
     }
-   },
-   
+  },
 });
 
+// чтобы аудио-код мог подписаться на события Swiper
+window.mainSwiper = mainSwiper;
 
+
+// ===========================
+// Аудио по тапу на картинку
+// ===========================
 (() => {
   const slider = document.getElementById('mySlider');
   if (!slider) return;
@@ -252,6 +79,7 @@ new Swiper('.image-slider', {
   const audio = new Audio();
   audio.preload = 'metadata';
 
+  // Панель плеера (одна на все слайды, переносим под активный)
   const bar = document.createElement('div');
   bar.className = 'audio-bar';
   bar.style.display = 'none';
@@ -286,17 +114,19 @@ new Swiper('.image-slider', {
   function updateUI() {
     const dur = audio.duration || 0;
     const cur = audio.currentTime || 0;
-    const pct = dur > 0 ? (cur / dur) * 100 : 0;
 
+    const pct = dur > 0 ? (cur / dur) * 100 : 0;
     fill.style.width = `${pct}%`;
     timeEl.textContent = `${fmt(cur)} / ${fmt(dur)}`;
     setBtnIcon(!audio.paused);
   }
 
   function attachBarUnder(img) {
+    // Swiper-слайд
     const swiperSlide = img.closest('.swiper-slide');
     if (!swiperSlide) return;
 
+    // Вставляем прямо под картинку (в твой контейнер)
     const imageBox = swiperSlide.querySelector('.image-slider__image');
     if (!imageBox) return;
 
@@ -312,13 +142,19 @@ new Swiper('.image-slider', {
 
     attachBarUnder(img);
 
+    // Тап по той же картинке — toggle play/pause
     if (currentImg === img && currentSrc === src) {
-      if (audio.paused) await audio.play();
-      else audio.pause();
+      try {
+        if (audio.paused) await audio.play();
+        else audio.pause();
+      } catch (e) {
+        console.warn('Audio play blocked:', e);
+      }
       updateUI();
       return;
     }
 
+    // Переключаем трек
     currentImg = img;
     currentSrc = src;
 
@@ -327,33 +163,56 @@ new Swiper('.image-slider', {
     audio.src = src;
 
     try {
-      await audio.play();
+      await audio.play(); // в user gesture (tap) — ок
     } catch (e) {
       console.warn('Audio play blocked:', e);
     }
     updateUI();
   }
 
-  // защита от клика после drag
-  let wasDragged = false;
-  slider.addEventListener('pointerdown', () => { wasDragged = false; }, { passive: true });
-  slider.addEventListener('pointermove', () => { wasDragged = true; }, { passive: true });
+  // ✅ Надёжно для мобилок: слушаем Swiper "tap"
+  if (window.mainSwiper) {
+    window.mainSwiper.on('tap', (swiper, e) => {
+      const img = e.target.closest('img[data-audio]');
+      if (!img) return;
+      playForImage(img);
+    });
 
-  slider.addEventListener('click', (e) => {
-    if (wasDragged) return;
-    const img = e.target.closest('img[data-audio]');
-    if (!img || !slider.contains(img)) return;
-    playForImage(img);
-  });
+    // Останавливаем при смене слайда (если тебе так нужно)
+    window.mainSwiper.on('slideChange', () => {
+      audio.pause();
+      audio.currentTime = 0;
+      setBtnIcon(false);
+      updateUI();
+      bar.style.display = 'none';
+      currentImg = null;
+      currentSrc = null;
+    });
+  } else {
+    // запасной вариант
+    slider.addEventListener('pointerup', (e) => {
+      const img = e.target.closest('img[data-audio]');
+      if (!img || !slider.contains(img)) return;
+      playForImage(img);
+    });
+  }
 
-  btn.addEventListener('click', async () => {
+  // Кнопка play/pause на панели
+  btn.addEventListener('click', async (e) => {
+    e.stopPropagation();
     if (!audio.src) return;
-    if (audio.paused) await audio.play();
-    else audio.pause();
+    try {
+      if (audio.paused) await audio.play();
+      else audio.pause();
+    } catch (err) {
+      console.warn('Audio play blocked:', err);
+    }
     updateUI();
   });
 
+  // Перемотка по прогресс-бару
   progress.addEventListener('click', (e) => {
+    e.stopPropagation();
     const dur = audio.duration;
     if (!dur || !Number.isFinite(dur)) return;
 
@@ -372,17 +231,17 @@ new Swiper('.image-slider', {
     setBtnIcon(false);
     updateUI();
   });
+})();
 
-  // Если mainSwiper есть — останавливаем на смене слайда
-  if (window.mainSwiper) {
-    window.mainSwiper.on('slideChange', () => {
-      audio.pause();
-      audio.currentTime = 0;
-      setBtnIcon(false);
-      updateUI();
-      bar.style.display = 'none';
-      currentImg = null;
-      currentSrc = null;
-    });
+
+// ===========================
+// (Опционально) фикс vh на мобилках, если нужен full-height без прыжков
+// ===========================
+(function () {
+  function setVh() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
   }
+  setVh();
+  window.addEventListener('resize', setVh);
 })();
