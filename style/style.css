@@ -1,24 +1,247 @@
-* {
-    margin: 0;
+*,
+*::before,
+*::after {
     padding: 0;
+    margin: 0;
+    border: 0;
     box-sizing: border-box;
-}
-/*
-:root {
-    
-}
-*/
-body {
-    font-family: 'Roboto', Arial ;
-    background: var(--main);
-    line-height: 1;
-}
-ul {
-    list-style: none;
 }
 a {
     text-decoration: none;
 }
-img{
+ul,
+ol,
+li {
+    list-style: none;
+}
+img {
+    vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+html,
+body {
+    height: 100%;
+    line-height: 1;
+    font-size: 14px;
+    background-color: #fff;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.wrapper {
+    padding: 30px;
+    min-height: 100%;
+}
+
+
+/* Флекс */
+.block {
+    display: flex;
+}
+/*
+.block__side {
+    flex: 0 0 300px;
+    background-color: #77608d;
+}
+*/
+.block__body {
+    padding: 0px 0px 0px 0px;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+
+
+
+
+
+/*-------------------*/
+.title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #0fadc9;
+    margin: 0px 0px 0px 0px;
+    text-align: center;
+}
+
+.image-slider {
+    padding: 30px 0 120px 0;
+}
+.image-slider__wrapper {
+
+}
+.image-slider__slide {
+
+}
+.image-slider__image {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.image-slider__image img {
+    max-width: 100%;
+    height: 600px;
+    object-fit: contain;
+}
+
+
+/* Стрелки */
+.image-slider .swiper-button-prev::after,
+.image-slider .swiper-button-next::after {
+    color: #fff;
+    font-size: 80px;
+}
+/* Пагинация */
+.image-slider .swiper-pagination {
+    bottom: 0;
+}
+.image-slider .swiper-pagination-bullet {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 20px;
+    background-color: #fff;
+}
+
+/* Фракция */
+.image-slider .swiper-pagination-fraction {
+    font-size: 20px;
+    color: #fff;
+}
+
+/* Прогрессбар */
+
+.image-slider .swiper-pagination-progressbar-fill {
+    background-color: #7a956b;
+}
+
+/* Скролл */
+.image-slider .swiper-scrollbar-drag {
+    cursor: pointer;
+    background-color: #7a956b;
+}
+
+/* Автоширина */
+.image-slider .swiper-slide {
+   /* width: auto; */
+}
+
+/* Мультирядность */
+/*
+.image-slider {
+    height: 700px;
+}
+.image-slider .swiper-slide {
+    height: calc((100% - 30px) / 2);
+    overflow: hidden;
+}
+*/
+
+/* Вертикальный слайдер */
+/*
+.image-slider {
+    padding: 0px 0 0px 0;
+    height: 700px;
+}
+*/
+
+
+/* Эффект куб */
+/*
+.image-slider {
+    width: 700px;
+}*/
+
+
+
+/* Миниатюры (превью) */
+
+
+
+.image-mini-slider {
     width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.image-mini-slider__wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+.image-mini-slider__slide {
+    opacity: 0.2;
+    transition: opacity 0.3s ease 0s;
+}
+.image-mini-slider__slide.swiper-slide-thumb-active {
+    opacity: 1;
+
+}
+
+.image-mini-slider__image {
+    position: relative;
+    padding: 0 0 30% 0;
+    cursor: pointer;
+}
+.image-mini-slider__image img {
+    object-fit: contain;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.audio-bar {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(115, 239, 255, 0.06);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+
+.audio-btn {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  background: rgba(0, 217, 255, 0.274);
+  display: grid;
+  place-items: center;
+  color: #0065a0;
+}
+
+.audio-btn:active { transform: scale(0.98); }
+
+.audio-progress {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.12);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.audio-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: rgba(0,0,0,0.55);
+}
+
+.audio-time {
+  font: 12px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  opacity: 0.75;
+  min-width: 86px;
+  text-align: right;
 }

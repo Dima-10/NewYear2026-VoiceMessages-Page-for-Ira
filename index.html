@@ -7,11 +7,108 @@
     <link rel="icon" href="./img/logo-new-black.png">
     <title>Голосовые</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
     <script src="https://kit.fontawesome.com/cae9394aaf.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style/all.css">
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
+        <div class="wrapper">
+            <h1 class="title">С Новым годом Ирина Киселёва &#128522;</h1>
+            <!-- Флекс контейнер-->
+            <!-- <div class="block">-->
+                <!-- Флекс элемент-->
+                <!-- <div class="block__side"></div>-->
+                <!-- Флекс элемент-->
+                <!-- <div class="block__body">-->
+                    <!-- Slider main container -->
+                    <div class="swiper image-slider" id="mySlider">
+                        <!-- Хеш навигация --> <!-- В каждый слайд добавить data-hash="Произвольное имя слайда"-->
+
+                        <!--Для изменения направления прокрутки слайдера, в swiper-wrapper добавляем аттрибут dir="rtl"-->
+
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper image-slider__wrapper">
+                            <!-- Slides -->
+                            
+                            
+                            <div data-hash="slide-1" class="swiper-slide image-slider__slide">
+                                <div class="image-slider__image swiper-zoom-container">
+                                    <img src="img/heart-6.png" data-audio="audio/track-1.mp3" alt="">
+                                </div>
+                            </div>
+                            <div data-hash="slide-2" class="swiper-slide image-slider__slide">
+                                <div class="image-slider__image swiper-zoom-container">
+                                    <img src="img/heart-2.png"  data-audio="audio/track-2.mp3" alt="">
+                                </div>
+                            </div>
+                            <div data-hash="slide-3" class="swiper-slide image-slider__slide">
+                                <div class="image-slider__image swiper-zoom-container">
+                                    <img src="img/heart-3.png" data-audio="audio/track-3.mp3" alt="">
+                                </div>
+                            </div>
+                            <div data-hash="slide-4" class="swiper-slide image-slider__slide">
+                                <div class="image-slider__image swiper-zoom-container">
+                                    <img src="img/heart-1.png" data-audio="audio/track-4.mp3" alt="">
+                                </div>
+                            </div>
+                            
+                            
+
+                        
+                        </div>
+                        <!-- If we need pagination -->
+                        <!-- <div class="swiper-pagination"></div> -->
+                    
+                        <!-- If we need navigation buttons -->
+                        <!-- <div class="swiper-button-prev"></div> -->
+                        <!-- <div class="swiper-button-next"></div> -->
+                    
+                        <!-- If we need scrollbar -->
+                        <!-- <div class="swiper-scrollbar"></div> -->
+                    </div>
+
+                
+                    <!--Миниатюры (превью)-->
+                    <div class="swiper-container image-mini-slider">
+                        <div class="swiper-wrapper image-mini-slider__wrapper">
+                            
+                            
+                            
+                            <div data-hash="slide-1" class="swiper-slide image-mini-slider__slide">
+                                <div class="image-mini-slider__image swiper-zoom-container">
+                                    <img src="img/heart-6.png" alt="">
+                                </div>
+                            </div>
+                            <div data-hash="slide-1" class="swiper-slide image-mini-slider__slide">
+                                <div class="image-mini-slider__image swiper-zoom-container">
+                                    <img src="img/heart-2.png" alt="">
+                                </div>
+                            </div>
+                            <div data-hash="slide-1" class="swiper-slide image-mini-slider__slide">
+                                <div class="image-mini-slider__image swiper-zoom-container">
+                                    <img src="img/heart-3.png" alt="">
+                                </div>
+                            </div>
+                            <div data-hash="slide-1" class="swiper-slide image-mini-slider__slide">
+                                <div class="image-mini-slider__image swiper-zoom-container">
+                                    <img src="img/heart-1.png" alt="">
+                                </div>
+                            </div>
+                            
+                            
+                            
     
+                        
+                        </div>
+                    </div>
+                <!--</div>-->
+            <!--</div>-->
+            
+            
+        </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
