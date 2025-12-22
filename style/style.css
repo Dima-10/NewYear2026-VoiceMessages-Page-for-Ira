@@ -267,7 +267,7 @@ body {
 }
 
 .image-slider__image img.tap-pop {
-  animation: tapPop 180ms ease-out;
+  animation: tapPop 270ms ease-out;
 }
 
 @keyframes tapPop {
