@@ -170,11 +170,24 @@ window.mainSwiper = mainSwiper;
     updateUI();
   }
 
+  function animateTap(img) {
+  img.classList.remove('tap-pop'); // чтобы повторный тап сработал
+  // форсим рефлоу
+  void img.offsetWidth;
+  img.classList.add('tap-pop');
+
+    img.addEventListener('animationend', () => {
+      img.classList.remove('tap-pop');
+    }, { once: true });
+  }
+
+
   // ✅ Надёжно для мобилок: слушаем Swiper "tap"
   if (window.mainSwiper) {
     window.mainSwiper.on('tap', (swiper, e) => {
       const img = e.target.closest('img[data-audio]');
       if (!img) return;
+      animateTap(img);
       playForImage(img);
     });
 
