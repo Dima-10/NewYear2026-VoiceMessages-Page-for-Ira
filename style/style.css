@@ -79,6 +79,7 @@ body {
   height: auto;
   object-fit: contain; /* ← белые поля вокруг, если пропорции другие */
   background: #ffffff; /* ← на случай прозрачного видео */
+  padding: 50px;
 }
 
 /* Плавное исчезновение */
