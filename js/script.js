@@ -1,4 +1,45 @@
 // ===========================
+// ===========================
+// Video Preloader (white background)
+// ===========================
+(() => {
+  const preloader = document.getElementById('preloader');
+  const video = document.getElementById('preloaderVideo');
+  if (!preloader || !video) return;
+
+  let done = false;
+
+  const hide = () => {
+    if (done) return;
+    done = true;
+
+    preloader.classList.add('hide');
+
+    // когда прелоадер начал исчезать — включаем появление контента
+    document.body.classList.remove('is-loading');
+    document.body.classList.add('is-loaded');
+
+    setTimeout(() => preloader.remove(), 1000);
+  };
+  // когда видео закончилось
+  video.addEventListener('ended', hide);
+
+  // если видео не загрузилось
+  video.addEventListener('error', hide);
+
+  window.addEventListener('load', async () => {
+    try {
+      video.currentTime = 0;
+      await video.play();
+    } catch (e) {
+      // autoplay заблокирован — убираем прелоадер
+      hide();
+    }
+  });
+})();
+
+
+// ===========================
 // Swiper (главный + миниатюры)
 // ===========================
 const mainSwiper = new Swiper('.image-slider', {
