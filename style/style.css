@@ -6,15 +6,17 @@
     border: 0;
     box-sizing: border-box;
 }
-
-a { text-decoration: none; }
-
+a {
+    text-decoration: none;
+}
 ul,
 ol,
-li { list-style: none; }
-
-img { vertical-align: top; }
-
+li {
+    list-style: none;
+}
+img {
+    vertical-align: top;
+}
 h1,
 h2,
 h3,
@@ -24,37 +26,32 @@ h6 {
     font-weight: inherit;
     font-size: inherit;
 }
-
 html,
 body {
     height: 100%;
     line-height: 1;
-
-    /* было 14px — делаем относительным (14px при дефолтных 16px) */
-    font-size: 0.875rem;
-
+    font-size: 14px;
     background-color: #fff;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
-
 .wrapper {
-    /* было: 60px 0 30px 0 */
-    padding: clamp(1.5rem, 6vh, 4.25rem) 0 clamp(1rem, 3vh, 2.2rem) 0;
+    padding: 60px 0 30px 0;
     min-height: 100%;
 }
 
-/* Флекс */
-.block { display: flex; }
 
+/* Флекс */
+.block {
+    display: flex;
+}
 /*
 .block__side {
     flex: 0 0 300px;
     background-color: #77608d;
 }
 */
-
 .block__body {
-    padding: 0;
+    padding: 0px 0px 0px 0px;
     flex: 1 1 auto;
     min-width: 0;
 }
@@ -66,9 +63,9 @@ body {
 #preloader {
   position: fixed;
   inset: 0;
-  background-color: #ffffff;
-  z-index: 99999;
-
+  background-color: #ffffff; /* ← белый фон */
+  z-index: 99999;            /* ← выше всего */
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,12 +77,9 @@ body {
   max-height: 100%;
   width: auto;
   height: auto;
-
-  object-fit: contain;
-  background: #ffffff;
-
-  /* было 50px */
-  padding: clamp(1rem, 5vh, 3.5rem);
+  object-fit: contain; /* ← белые поля вокруг, если пропорции другие */
+  background: #ffffff; /* ← на случай прозрачного видео */
+  padding: 50px;
 }
 
 /* Плавное исчезновение */
@@ -95,86 +89,77 @@ body {
   pointer-events: none;
 }
 
+
 /*-------------------*/
 .title {
+    font-size: 50px;
     font-weight: 700;
     color: #0fadc9;
+    margin: 0px 0px 0px 0px;
     text-align: center;
     font-family: "Marck Script", cursive;
-
-    /* уже было clamp — оставляем */
-    font-size: clamp(1.5rem, 4.5vw, 3.125rem);
-    line-height: 1.05;
-
-    /* было 0 15px */
-    padding: 0 clamp(0.6rem, 3vw, 1.1rem);
-    margin: 0;
+    padding: 0px 15px;
 }
-
 .subtitile {
+    font-size: 50px;
+    line-height: 70px;
     font-weight: 400;
     color: #0fadc9;
+    margin: 0px 0px 0px 0px;
     text-align: center;
     font-family: "Marck Script", cursive;
-
-    /* было 50px + line-height 70px */
-    font-size: clamp(1.25rem, 4vw, 3.125rem);
-    line-height: 1.1;
-
-    padding: 0 clamp(0.6rem, 3vw, 1.1rem);
-    margin: 0;
+    padding: 0px 15px;
 }
+
 
 .image-slider {
-    /* было 80px 0 140px 0 */
-    padding: clamp(1rem, 7vh, 3.5rem) 0 clamp(1.5rem, 11vh, 6.25rem) 0;
+    padding: 80px 0 140px 0;
 }
+.image-slider__wrapper {
 
+}
+.image-slider__slide {
+
+}
 .image-slider__image {
     text-align: center;
     display: flex;
     flex-direction: column;
 }
-
 .image-slider__image img {
     max-width: 100%;
-
-    /* было max-height: 400px */
-    max-height: clamp(12rem, 45vh, 28.5rem);
-
+    max-height: 400px;
     height: 100%;
     object-fit: contain;
 }
+
 
 /* Стрелки */
 .image-slider .swiper-button-prev::after,
 .image-slider .swiper-button-next::after {
     color: #fff;
-
-    /* было 80px */
-    font-size: clamp(2.5rem, 8vw, 5.75rem);
+    font-size: 80px;
 }
-
 /* Пагинация */
-.image-slider .swiper-pagination { bottom: 0; }
-
+.image-slider .swiper-pagination {
+    bottom: 0;
+}
 .image-slider .swiper-pagination-bullet {
-    /* было 20px */
-    width: clamp(0.75rem, 2.5vw, 1.45rem);
-    height: clamp(0.75rem, 2.5vw, 1.45rem);
-    line-height: 1;
-    font-size: 1rem;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 20px;
     background-color: #fff;
 }
 
 /* Фракция */
 .image-slider .swiper-pagination-fraction {
-    /* было 20px */
-    font-size: clamp(0.95rem, 2vw, 1.45rem);
+    font-size: 20px;
     color: #fff;
 }
 
 /* Прогрессбар */
+
 .image-slider .swiper-pagination-progressbar-fill {
     background-color: #7a956b;
 }
@@ -190,40 +175,63 @@ body {
    /* width: auto; */
 }
 
-/* ===========================
-   Миниатюры (превью)
-=========================== */
+/* Мультирядность */
+/*
+.image-slider {
+    height: 700px;
+}
+.image-slider .swiper-slide {
+    height: calc((100% - 30px) / 2);
+    overflow: hidden;
+}
+*/
+
+/* Вертикальный слайдер */
+/*
+.image-slider {
+    padding: 0px 0 0px 0;
+    height: 700px;
+}
+*/
+
+
+/* Эффект куб */
+/*
+.image-slider {
+    width: 700px;
+}*/
+
+
+
+/* Миниатюры (превью) */
+
+
 
 .image-mini-slider {
     width: 100%;
     display: flex;
     justify-content: center;
 }
-
 .image-mini-slider__wrapper{
     width: 100%;
     display: flex;
     justify-content: center;
-}
 
+}
 .image-mini-slider__slide {
     opacity: 0.2;
     transition: opacity 0.3s ease 0s;
 }
-
 .image-mini-slider__slide.swiper-slide-thumb-active {
     opacity: 1;
+
 }
 
 .image-mini-slider__image {
     position: relative;
-
-    /* проценты тут как раз ок и “относительно” */
     padding: 0 0 30% 0;
-
     cursor: pointer;
 }
-
 .image-mini-slider__image img {
     object-fit: contain;
     position: absolute;
@@ -233,50 +241,22 @@ body {
     left: 0;
 }
 
-/* чтобы drag работал как свайп, а не "тащить картинку" */
-.image-slider__image img,
-.image-mini-slider__image img {
-  -webkit-user-drag: none;
-  user-drag: none;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-
-/* ===========================
-   Audio UI (перевод px -> rem)
-=========================== */
-
 .audio-bar {
-  /* было 30px */
-  margin-top: clamp(0.8rem, 3vh, 2.2rem);
-
-  /* было 10px 12px */
-  padding: 0.7rem 0.85rem;
-
-  /* было 12px */
-  border-radius: 0.85rem;
-
+  margin-top: 30px;
+  padding: 10px 12px;
+  border-radius: 12px;
   background: rgba(115, 239, 255, 0.06);
   display: flex;
   align-items: center;
-
-  /* было 10px */
-  gap: 0.7rem;
-
+  gap: 10px;
   user-select: none;
 }
 
 .audio-btn {
-  /* было 34px */
-  width: 2.45rem;
-  height: 2.45rem;
-
+  width: 34px;
+  height: 34px;
   border: 0;
-
-  /* было 10px */
-  border-radius: 0.7rem;
-
+  border-radius: 10px;
   cursor: pointer;
   background: rgba(0, 217, 255, 0.274);
   display: grid;
@@ -288,10 +268,7 @@ body {
 
 .audio-progress {
   flex: 1;
-
-  /* было 6px */
-  height: 0.45rem;
-
+  height: 6px;
   border-radius: 999px;
   background: rgba(0,0,0,0.12);
   overflow: hidden;
@@ -306,14 +283,9 @@ body {
 }
 
 .audio-time {
-  /* было 12px */
-  font: 0.85rem/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-
+  font: 12px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   opacity: 0.75;
-
-  /* было 86px */
-  min-width: 6.15rem;
-
+  min-width: 86px;
   text-align: right;
 }
 
@@ -333,6 +305,13 @@ body {
   100% { transform: scale(1); }
 }
 
+
+
+
+
+
+
+
 /* ===========================
    REVEAL AFTER PRELOADER
 =========================== */
@@ -340,9 +319,7 @@ body {
 /* Пока прелоадер активен — скрываем контент */
 body.is-loading .wrapper > * {
   opacity: 0;
-
-  /* было 18px */
-  transform: translateY(1.3rem);
+  transform: translateY(18px);
 }
 
 /* После прелоадера — плавное появление */
