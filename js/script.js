@@ -109,6 +109,13 @@ const mainSwiper = new Swiper('.image-slider', {
 // чтобы аудио-код мог подписаться на события Swiper
 window.mainSwiper = mainSwiper;
 
+// ===========================
+// Fix: prevent native image dragging (desktop)
+// ===========================
+document.querySelectorAll('.image-slider img, .image-mini-slider img').forEach(img => {
+  img.setAttribute('draggable', 'false');
+  img.addEventListener('dragstart', (e) => e.preventDefault());
+});
 
 // ===========================
 // Аудио по тапу на картинку
@@ -299,3 +306,4 @@ window.mainSwiper = mainSwiper;
   setVh();
   window.addEventListener('resize', setVh);
 })();
+

@@ -233,6 +233,16 @@ body {
     left: 0;
 }
 
+/* чтобы drag работал как свайп, а не "тащить картинку" */
+.image-slider__image img,
+.image-mini-slider__image img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+
 /* ===========================
    Audio UI (перевод px -> rem)
 =========================== */
@@ -351,3 +361,19 @@ body.is-loaded .wrapper > *:nth-child(3) { transition-delay: 240ms; }
 body.is-loaded .wrapper > *:nth-child(4) { transition-delay: 360ms; }
 body.is-loaded .wrapper > *:nth-child(5) { transition-delay: 480ms; }
 body.is-loaded .wrapper > *:nth-child(6) { transition-delay: 600ms; }
+
+
+
+
+@media(max-width:508px){
+    .title {
+        font-size: 35px;
+    }
+    .subtitile {
+        font-size: 30px;
+    }
+    .image-slider__image img {
+        max-height: 200px;
+    }
+
+}
