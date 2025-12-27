@@ -201,7 +201,14 @@ body {
     width: 700px;
 }*/
 
-
+/* чтобы drag работал как свайп, а не "тащить картинку" */
+.image-slider__image img,
+.image-mini-slider__image img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
 
 /* Миниатюры (превью) */
 
